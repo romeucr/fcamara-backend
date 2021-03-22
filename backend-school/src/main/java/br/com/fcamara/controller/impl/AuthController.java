@@ -1,4 +1,4 @@
-package br.com.fcamara.controller;
+package br.com.fcamara.controller.impl;
 
 import javax.validation.Valid;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fcamara.controller.IAuthController;
 import br.com.fcamara.dto.UserDTO;
 import br.com.fcamara.entity.UserEntity;
 import br.com.fcamara.model.Response;
@@ -17,14 +18,12 @@ import br.com.fcamara.repository.IUserRepository;
 import br.com.fcamara.service.IAuthService;
 
 @RestController
-@RequestMapping("/auth")
-public class AuthController {
+public class AuthController implements IAuthController {
 
 	
 	@Autowired
 	private IAuthService authService;
 	
-	@PostMapping("/register")
 	public ResponseEntity<Response<Boolean>> register(@Valid @RequestBody UserDTO user) {
 		Response<Boolean> response = new Response<>();
 		response.setData(this.authService.register(user));
