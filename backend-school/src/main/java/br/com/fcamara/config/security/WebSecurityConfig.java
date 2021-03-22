@@ -28,7 +28,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		String[] allowed = new String[] {
-				"webjars", "/auth/register", "/static/**"
+				 "/auth/register","/v2/api-docs", "/configuration/ui", 
+		            "/swagger-resources/**", "/configuration/**", "/swagger-ui.html"
+		            , "/webjars/**", "/csrf", "/"
 			};
 		http.csrf().disable()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
