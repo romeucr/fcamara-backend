@@ -44,7 +44,7 @@ public class AbstractEntity {
 
 	@LastModifiedBy
 	@Column
-	private String lasModifiedBy;
+	private String lastModifiedBy;
 
 	public AbstractEntity(Long id) {
 		this.id = id;

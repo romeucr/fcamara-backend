@@ -12,7 +12,6 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import br.com.fcamara.entity.UserEntity;
 import br.com.fcamara.repository.IUserRepository;
 
 @Configuration
