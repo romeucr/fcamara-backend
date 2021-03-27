@@ -1,20 +1,17 @@
 package br.com.fcamara.entity;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
 @Entity
 @Data
 @Table(name="tb_user", indexes = { @Index(name = "email_idx", columnList = "email") }, uniqueConstraints = {
@@ -37,6 +34,10 @@ public class UserEntity extends AbstractEntity implements Serializable {
 	
 	@Column(name = "is_active")
 	private boolean active = true;
-	
 
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable (name = "tb_user_role",
+					joinColumns = @JoinColumn(name = "user_id"),
+					inverseJoinColumns = @ JoinColumn(name = "role_id"))
+	private Set<RoleEntity> roles = new HashSet<>();
 }
