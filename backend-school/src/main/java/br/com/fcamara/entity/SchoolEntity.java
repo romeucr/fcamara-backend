@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_school")
@@ -24,5 +26,8 @@ public class SchoolEntity {
   @OneToOne
   @JoinColumn(name = "address_id")
   private AddressEntity address;
+
+  @OneToMany(mappedBy="school", cascade=CascadeType.ALL)
+  private Set<StudentEntity> students = new HashSet<>();
 
 }

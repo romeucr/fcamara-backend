@@ -39,7 +39,7 @@ public class AuthService implements IAuthService/*, UserDetailsService*/ {
 		try {
 			ModelMapper mapper = new ModelMapper();
 			UserEntity userEntity = mapper.map(userDTO, UserEntity.class);
-			userEntity.setSenha(pass.encode(userEntity.getSenha()));
+			userEntity.setPassword(pass.encode(userEntity.getPassword()));
 			userRepository.save(userEntity);
 			return true;
 		} catch (Exception e) {
