@@ -1,5 +1,6 @@
 package br.com.fcamara.entity;
 
+import br.com.fcamara.entity.enums.EducationLevelEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,9 @@ public class StudentEntity implements Serializable {
 
   private String name;
   private Integer age;
+  private EducationLevelEnum educationLevel;
+  private Integer educationLevelGrade;
+  private String cpf;
 
   @OneToOne(mappedBy = "student")
   private SupplyListEntity supplyListId;

@@ -1,10 +1,5 @@
 package br.com.fcamara.entity;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.AllArgsConstructor;
@@ -12,10 +7,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Data
 @Table(name="tb_user", indexes = { @Index(name = "email_idx", columnList = "email") }, uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "email" }) })
+		@UniqueConstraint(columnNames = { "email", "cpf" }) })
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -26,6 +26,8 @@ public class UserEntity extends AbstractEntity implements Serializable {
 
 	@JsonInclude(Include.NON_EMPTY)
 	private String name;
+
+	private String cpf;
 
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "email")
