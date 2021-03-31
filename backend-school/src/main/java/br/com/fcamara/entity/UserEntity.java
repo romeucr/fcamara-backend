@@ -25,11 +25,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Data
 @Table(name="tb_user", indexes = { @Index(name = "email_idx", columnList = "email") }, uniqueConstraints = {
@@ -46,7 +41,7 @@ public class UserEntity extends AbstractEntity implements Serializable {
 	
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "fullname")
-	private String nomeCompleto;	
+	private String fullname;	
 	
 	private String cpf;
 
