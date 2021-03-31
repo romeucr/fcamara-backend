@@ -22,6 +22,8 @@ public class AddressEntity implements Serializable {
   private String complement;
   private String neighbourhood;
   private String zipCode;
+  private Double latitude;
+  private Double longitude;
 
   @ManyToOne
   @JoinColumn(name = "city_id")
@@ -29,4 +31,7 @@ public class AddressEntity implements Serializable {
 
   @OneToOne(mappedBy = "address")
   private SchoolEntity school;
+
+  @OneToOne(mappedBy = "address")
+  private UserEntity user;
 }

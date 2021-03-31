@@ -29,7 +29,7 @@ public class AuthenticatedUser implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		return user.getSenha();
+		return user.getPassword();
 	}
 
 	@Override
