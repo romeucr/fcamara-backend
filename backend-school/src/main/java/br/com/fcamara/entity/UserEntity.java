@@ -24,6 +24,9 @@ public class UserEntity extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = -904241684393606265L;
 	
+	@JsonInclude(Include.NON_EMPTY)
+	@Column(name = "fullname")
+	private String nomeCompleto;	
 	
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "email")
@@ -39,5 +42,5 @@ public class UserEntity extends AbstractEntity implements Serializable {
 	@JoinTable (name = "tb_user_role",
 					joinColumns = @JoinColumn(name = "user_id"),
 					inverseJoinColumns = @ JoinColumn(name = "role_id"))
-	private Set<RoleEntity> roles = new HashSet<>();
+	private Set<RoleEntity> roles = new HashSet<RoleEntity>();
 }

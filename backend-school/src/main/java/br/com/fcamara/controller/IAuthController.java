@@ -13,7 +13,7 @@ import br.com.fcamara.model.Response;
 @RequestMapping("/auth")
 public interface IAuthController {
 	
-	@PostMapping("/register")
+	@PostMapping("/register-donor")
 	public ResponseEntity<Response<Boolean>> register(@Valid @RequestBody UserDTO user);
 
 }
