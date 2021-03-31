@@ -13,6 +13,9 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
 
 	private Long id;
+	
+	@NotBlank(message = "Informe o seu nome completo.")
+	private String fullname;
 
 	@NotBlank(message = "Informe o seu e-mail.")
 	@Email(message = "O e-mail precisa ser válido.")
@@ -20,7 +23,7 @@ public class UserDTO {
 
 	@NotBlank(message = "Informe a senha.")
 	@Length(min = 3)
-	private String senha;
+	private String password;
 
 	private boolean active = true;
 }
