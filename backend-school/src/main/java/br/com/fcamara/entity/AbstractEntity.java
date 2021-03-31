@@ -2,11 +2,7 @@ package br.com.fcamara.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
@@ -25,8 +21,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class AbstractEntity {
 	@JsonInclude(Include.NON_NULL)
 	@Id
-	@GeneratedValue(generator = "increment")
-	@GenericGenerator(name = "increment", strategy = "increment")
+//	@GeneratedValue(generator = "increment")
+//	@GenericGenerator(name = "increment", strategy = "increment")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 
