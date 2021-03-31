@@ -29,7 +29,6 @@ public class AuthService implements IAuthService {
 			UserEntity userEntity = mapper.map(userDTO, UserEntity.class);
 			userEntity.setPassword(pass.encode(userEntity.getPassword()));
 			userRepository.save(userEntity);
-			System.out.println("chegou aqui");
 			return true;
 		} catch (Exception e) {
 			throw new AuthException("Não foi possível criar o usuário.", HttpStatus.CONFLICT);
