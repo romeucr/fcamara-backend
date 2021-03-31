@@ -25,6 +25,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Data
 @Table(name="tb_user", indexes = { @Index(name = "email_idx", columnList = "email") }, uniqueConstraints = {
@@ -37,12 +42,12 @@ public class UserEntity extends AbstractEntity implements Serializable {
 
 	private static final long serialVersionUID = -904241684393606265L;
 
+
 	
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "fullname")
 	private String nomeCompleto;	
 	
-
 	private String cpf;
 
 	@JsonInclude(Include.NON_EMPTY)
@@ -61,7 +66,6 @@ public class UserEntity extends AbstractEntity implements Serializable {
 					inverseJoinColumns = @ JoinColumn(name = "role_id"))
 
 	private Set<RoleEntity> roles = new HashSet<RoleEntity>();
-}
 
 	@OneToOne
 	@JoinColumn(name = "address_id")

@@ -1,5 +1,6 @@
 package br.com.fcamara.service.impl;
 
+<<<<<<< HEAD
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
