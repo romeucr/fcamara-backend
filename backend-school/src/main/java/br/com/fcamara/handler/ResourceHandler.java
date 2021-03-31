@@ -4,6 +4,8 @@ package br.com.fcamara.handler;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.fcamara.exception.StandardError;
+import br.com.fcamara.service.exceptions.ForbiddenException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import br.com.fcamara.exception.AuthException;
 import br.com.fcamara.model.Response;
+
+import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ResourceHandler {
@@ -39,10 +43,14 @@ public class ResourceHandler {
 		Response<Map<String, String>> response = new Response<Map<String, String>>();
 		response.setStatusCode(HttpStatus.BAD_REQUEST.value());
 		response.setData(erros);
-		
-		
+
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 	}
-	
+
+	@ExceptionHandler(ForbiddenException.class)
+		public ResponseEntity<StandardError> handlerForbiddenException(ForbiddenException e, HttpServletRequest request) {
+			StandardError err = new StandardError(HttpStatus.FORBIDDEN.value(), e.getMessage(), System.currentTimeMillis());
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
+		}
 
 }

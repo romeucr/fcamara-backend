@@ -50,4 +50,7 @@ public class AbstractEntity {
 	public AbstractEntity() {
 	}
 
+	public Long getId() {
+		return this.id;
+	}
 }
