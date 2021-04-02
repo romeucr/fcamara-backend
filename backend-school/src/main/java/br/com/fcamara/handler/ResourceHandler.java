@@ -6,6 +6,7 @@ import java.util.Map;
 
 import br.com.fcamara.exception.StandardError;
 import br.com.fcamara.service.exceptions.ForbiddenException;
+import br.com.fcamara.service.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -30,7 +31,7 @@ public class ResourceHandler {
 		response.setTimeStamp(System.currentTimeMillis());
 		return ResponseEntity.status(m.getHttpStatus()).body(response);
 	}
-	
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response<Map<String, String>>> handlerMethodArgumentNotValidException(MethodArgumentNotValidException m) {
 		Map<String, String> erros = new HashMap<>();
@@ -39,7 +40,7 @@ public class ResourceHandler {
 			String mensagem = error.getDefaultMessage();
 			erros.put(campo, mensagem);
 		});
-		
+
 		Response<Map<String, String>> response = new Response<Map<String, String>>();
 		response.setStatusCode(HttpStatus.BAD_REQUEST.value());
 		response.setData(erros);
@@ -52,5 +53,11 @@ public class ResourceHandler {
 			StandardError err = new StandardError(HttpStatus.FORBIDDEN.value(), e.getMessage(), System.currentTimeMillis());
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
 		}
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<StandardError> handlerResourceNotFoundException(ResourceNotFoundException e, HttpServletRequest request) {
+		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
+	}
 
 }

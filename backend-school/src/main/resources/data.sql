@@ -23,18 +23,22 @@ INSERT INTO tb_school (name, category, total_students_needing_help, address_id) 
 INSERT INTO tb_school (name, category, total_students_needing_help, address_id) VALUES ('EM Presidente Tancredo de Almeida Neves', 0, 1, 9);
 INSERT INTO tb_school (name, category, total_students_needing_help, address_id) VALUES ('EE Teixeira Pombo Comendador', 1, 1, 3);
 
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 1', '262.691.820-26', 'donor1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 1, true);
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 2', '479.932.210-99', 'donor2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 4, true);
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 3', '247.351.090-30', 'donor3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 6, true);
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 1', '067.349.450-06', 'responsible1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 2, true);
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 2', '627.181.090-09', 'responsible2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 5, true);
-INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 3', '705.462.900-00', 'responsible3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 7, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Doador 1', '262.691.820-26', 'donor1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 1, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Doador 2', '479.932.210-99', 'donor2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 4, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Doador 3', '247.351.090-30', 'donor3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 6, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Responsavel 1', '067.349.450-06', 'responsible1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 2, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Responsavel 2', '627.181.090-09', 'responsible2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 5, true);
+INSERT INTO tb_user (fullname, cpf, email, password, address_id, is_active) VALUES ('Responsavel 3', '705.462.900-00', 'responsible3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 7, true);
 
 INSERT INTO tb_role (authority) VALUES ('DONOR');
 INSERT INTO tb_role (authority) VALUES ('RESPONSIBLE');
 
 INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 1);
-INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (6, 2);
 
 INSERT INTO tb_supply (name, avg_price, unity) VALUES ('Apontador com depósito', 1.50, 'un');
 INSERT INTO tb_supply (name, avg_price, unity) VALUES ('Apontador sem depósito', 1.00, 'un');
@@ -71,7 +75,7 @@ INSERT INTO tb_supply (name, avg_price, unity) VALUES ('Pasta catálogo com elá
 
 INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('382.465.540-34', 'Joaozinho da Silva' , 15, 1, 2, 1, 5, 6);
 INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('267.787.030-40', 'Mariazinha da Silva', 10, 2, 1, 5, 5, 1);
-INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('392.964.550-57', 'Tiaguinho Malta'    ,  9, 3, 1, 4, 2, 4);
+INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('392.964.550-57', 'Tiaguinho Malta'    ,  9, 3, 1, 4, 4, 2);
 
 INSERT INTO tb_supply_list (student_id, list_total_value) VALUES (1, 82.50);
 INSERT INTO tb_supply_list (student_id, list_total_value) VALUES (2, 30.00);

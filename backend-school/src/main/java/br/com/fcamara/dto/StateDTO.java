@@ -19,5 +19,4 @@ public class StateDTO implements Serializable {
   private Long id;
   private String name;
   private String acronym;
-  private List<CityDTO> cities = new ArrayList<>();
 }

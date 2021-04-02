@@ -2,6 +2,7 @@ package br.com.fcamara.controller.impl;
 
 import javax.validation.Valid;
 
+import br.com.fcamara.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,4 +27,5 @@ public class AuthController implements IAuthController {
 		response.setStatusCode(HttpStatus.CREATED.value());
 		return ResponseEntity.status(HttpStatus.CREATED).body(response);
 	}
+
 }
