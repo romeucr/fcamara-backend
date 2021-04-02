@@ -15,7 +15,7 @@ import java.util.List;
 public class SchoolController {
 
   @Autowired
-  SchoolService schoolService;
+  private SchoolService schoolService;
 
   @GetMapping("/{name}")
   public ResponseEntity<List<SchoolDTO>> findByName(@PathVariable String name) {

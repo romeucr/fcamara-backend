@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
   @Autowired
-  StudentService studentService;
+  private StudentService studentService;
 
   @GetMapping("/{id}")
   public ResponseEntity<StudentDTO> findById(@PathVariable Long id) {
