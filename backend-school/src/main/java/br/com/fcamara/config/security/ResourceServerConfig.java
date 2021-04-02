@@ -48,28 +48,28 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
             .antMatchers(PUBLIC).permitAll() //permite acesso a tudo que for PUBLIC
             .anyRequest().authenticated(); //para o resto, precisa estar logado
 
-    http.cors().configurationSource(corsConfigurationSource());
+    //http.cors().configurationSource(corsConfigurationSource());
   }
 
   //boiler plate para liberação do CORS
-  @Bean
-  public CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration corsConfig = new CorsConfiguration();
-    corsConfig.setAllowedOrigins(Arrays.asList("*"));
-    corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));
-    corsConfig.setAllowCredentials(true);
-    corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", corsConfig);
-    return source;
-  }
-
-  @Bean
-  public FilterRegistrationBean<CorsFilter> corsFilter() {
-    FilterRegistrationBean<CorsFilter> bean
-            = new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
-    bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-    return bean;
-  }
+//  @Bean
+//  public CorsConfigurationSource corsConfigurationSource() {
+//    CorsConfiguration corsConfig = new CorsConfiguration();
+//    corsConfig.setAllowedOrigins(Arrays.asList("*"));
+//    corsConfig.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE", "PATCH"));
+//    corsConfig.setAllowCredentials(true);
+//    corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+//
+//    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//    source.registerCorsConfiguration("/**", corsConfig);
+//    return source;
+//  }
+//
+//  @Bean
+//  public FilterRegistrationBean<CorsFilter> corsFilter() {
+//    FilterRegistrationBean<CorsFilter> bean
+//            = new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
+//    bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+//    return bean;
+//  }
 }

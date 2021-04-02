@@ -18,7 +18,7 @@ public class SupplyListEntity implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long Id;
+  private Long id;
 
   private Double listTotalValue;
 

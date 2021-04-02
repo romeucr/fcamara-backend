@@ -12,6 +12,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "tb_supply_list_item")
 public class SupplyListItemEntity implements Serializable {
 

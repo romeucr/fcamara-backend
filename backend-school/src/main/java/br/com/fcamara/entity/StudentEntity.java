@@ -26,7 +26,7 @@ public class StudentEntity implements Serializable {
   private String cpf;
 
   @OneToOne(mappedBy = "student")
-  private SupplyListEntity supplyListId;
+  private SupplyListEntity supplyList;
 
   @ManyToOne
   @JoinColumn(name = "school_id")
