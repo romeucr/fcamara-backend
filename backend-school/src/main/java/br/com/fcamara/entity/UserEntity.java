@@ -28,13 +28,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Table(name="tb_user", indexes = { @Index(name = "email_idx", columnList = "email") }, uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "email", "cpf" }) })
+		@UniqueConstraint(columnNames = { "email" }) })
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends AbstractEntity implements Serializable {
-
-
 	private static final long serialVersionUID = -904241684393606265L;
 
 
@@ -71,6 +69,4 @@ public class UserEntity extends AbstractEntity implements Serializable {
 
 	@OneToMany(mappedBy="donor", cascade=CascadeType.ALL)
 	private Set<StudentEntity> donorStudentList = new HashSet<>();
-
-
 }

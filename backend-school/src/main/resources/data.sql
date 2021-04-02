@@ -23,12 +23,12 @@ INSERT INTO tb_school (name, category, total_students_needing_help, address_id) 
 INSERT INTO tb_school (name, category, total_students_needing_help, address_id) VALUES ('EM Presidente Tancredo de Almeida Neves', 0, 1, 9);
 INSERT INTO tb_school (name, category, total_students_needing_help, address_id) VALUES ('EE Teixeira Pombo Comendador', 1, 1, 3);
 
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('262.691.820-26', 'donor1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 1);
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('479.932.210-99', 'donor2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 4);
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('247.351.090-30', 'donor3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 6);
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('067.349.450-06', 'responsible1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 2);
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('627.181.090-09', 'responsible2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 5);
-INSERT INTO tb_user (cpf, email, password, address_id) VALUES ('705.462.900-00', 'responsible3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 7);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 1', '262.691.820-26', 'donor1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 1, true);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 2', '479.932.210-99', 'donor2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 4, true);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Doador 3', '247.351.090-30', 'donor3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 6, true);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 1', '067.349.450-06', 'responsible1@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 2, true);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 2', '627.181.090-09', 'responsible2@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 5, true);
+INSERT INTO tb_user (name, cpf, email, password, address_id, is_active) VALUES ('Responsavel 3', '705.462.900-00', 'responsible3@email.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG', 7, true);
 
 INSERT INTO tb_role (authority) VALUES ('DONOR');
 INSERT INTO tb_role (authority) VALUES ('RESPONSIBLE');

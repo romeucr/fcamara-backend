@@ -1,5 +1,6 @@
 package br.com.fcamara.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tb_state")
 public class StateEntity implements Serializable {
 
@@ -25,9 +27,4 @@ public class StateEntity implements Serializable {
   @OneToMany(mappedBy = "state")
   private List<CityEntity> cities = new ArrayList<>();
 
-  public StateEntity(Long id, String name, String acronym) {
-    this.id = id;
-    this.name = name;
-    this.acronym = acronym;
-  }
 }
