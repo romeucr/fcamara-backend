@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
@@ -19,10 +20,17 @@ import java.util.Set;
 public class UserDTO {
 
 	private Long id;
+	
+	@NotBlank(message = "Informe o seu nome completo.")
+	private String fullname;
 
 	@NotBlank(message = "Informe o seu e-mail.")
 	@Email(message = "O e-mail precisa ser válido.")
 	private String email;
+
+	@NotBlank(message = "Informe a senha.")
+	@Length(min = 3)
+	private String password;
 
 	private boolean active = true;
 
