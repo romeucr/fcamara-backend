@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	// Para verificar o profile de execução e permitir o load correto do H2.
 	@Autowired
 	private MyUserDetailsService myUserDetailsService;
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(myUserDetailsService).passwordEncoder(encoder());
