@@ -35,8 +35,6 @@ import lombok.NoArgsConstructor;
 public class UserEntity extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = -904241684393606265L;
 
-
-	
 	@JsonInclude(Include.NON_EMPTY)
 	@Column(name = "fullname")
 	private String fullname;	

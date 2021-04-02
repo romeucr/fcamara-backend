@@ -1,5 +1,6 @@
 package br.com.fcamara.dto;
 
+import br.com.fcamara.entity.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
@@ -22,20 +23,13 @@ public class UserDTO {
 	private Long id;
 	
 	@NotBlank(message = "Informe o seu nome completo.")
-	private String fullname;
+	private String fullName;
 
 	@NotBlank(message = "Informe o seu e-mail.")
 	@Email(message = "O e-mail precisa ser válido.")
 	private String email;
 
-	@NotBlank(message = "Informe a senha.")
-	@Length(min = 3)
-	private String password;
-
 	private boolean active = true;
-
-	@NotBlank(message = "Informe o seu nome completo.")
-	private String name;
 
 	@NotBlank(message = "Informe o seu cpf.")
 	@CPF
@@ -43,7 +37,10 @@ public class UserDTO {
 
 	private Set<RoleDTO> roles = new HashSet<>();
 
-	//private AddressDTO address;
-	//private Set<StudentDTO> responsibleStudentList = new HashSet<>();
-	//private Set<StudentDTO> donorStudentList = new HashSet<>();
+	public UserDTO(UserEntity entity) {
+		this.id = entity.getId();
+		this.fullName = entity.getFullname();
+		this.email = entity.getEmail();
+		this.cpf = entity.getCpf();
+	}
 }

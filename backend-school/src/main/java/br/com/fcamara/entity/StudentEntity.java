@@ -25,8 +25,8 @@ public class StudentEntity implements Serializable {
   private Integer educationLevelGrade;
   private String cpf;
 
-  @OneToOne(mappedBy = "student")
-  private SupplyListEntity supplyListId;
+  @OneToOne(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+  private SupplyListEntity supplyList;
 
   @ManyToOne
   @JoinColumn(name = "school_id")

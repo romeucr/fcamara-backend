@@ -18,11 +18,11 @@ public class SupplyListEntity implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long Id;
+  private Long id;
 
   private Double listTotalValue;
 
-  @OneToMany(mappedBy = "id.supplyList")
+  @OneToMany(mappedBy = "id.supplyList", cascade = CascadeType.ALL, orphanRemoval = true)
   private Set<SupplyListItemEntity> supplies = new HashSet<>();
 
   @OneToOne
