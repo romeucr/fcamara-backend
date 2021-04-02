@@ -75,7 +75,7 @@ INSERT INTO tb_supply (name, avg_price, unity) VALUES ('Pasta catálogo com elá
 
 INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('382.465.540-34', 'Joaozinho da Silva' , 15, 1, 2, 1, 5, 6);
 INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('267.787.030-40', 'Mariazinha da Silva', 10, 2, 1, 5, 5, 1);
-INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('392.964.550-57', 'Tiaguinho Malta'    ,  9, 3, 1, 4, 2, 4);
+INSERT INTO tb_student (cpf, name, age, school_id, education_level, education_level_grade, responsible_id, donor_id) VALUES ('392.964.550-57', 'Tiaguinho Malta'    ,  9, 3, 1, 4, 4, 2);
 
 INSERT INTO tb_supply_list (student_id, list_total_value) VALUES (1, 82.50);
 INSERT INTO tb_supply_list (student_id, list_total_value) VALUES (2, 30.00);

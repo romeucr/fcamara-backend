@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -22,8 +20,6 @@ public class SchoolDTO implements Serializable {
   private String name;
   private SchoolCategoryEnum category;
   private Integer totalStudentsNeedingHelp;
-//  private AddressDTO address;
-//  private Set<StudentDTO> students = new HashSet<>();
 
   public SchoolDTO (SchoolEntity entity) {
     this.id = entity.getId();

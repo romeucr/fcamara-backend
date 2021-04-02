@@ -22,7 +22,7 @@ public class SupplyListEntity implements Serializable {
 
   private Double listTotalValue;
 
-  @OneToMany(mappedBy = "id.supplyList")
+  @OneToMany(mappedBy = "id.supplyList", cascade = CascadeType.ALL, orphanRemoval = true)
   private Set<SupplyListItemEntity> supplies = new HashSet<>();
 
   @OneToOne

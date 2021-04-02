@@ -26,6 +26,7 @@ public class StudentDTO implements Serializable {
   private SchoolDTO school;
   private UserDTO responsible;
   private UserDTO donor;
+  private Long supplyListId;
 
   public StudentDTO(StudentEntity entity) {
     this.id = entity.getId();
@@ -37,6 +38,7 @@ public class StudentDTO implements Serializable {
     this.school = new SchoolDTO(entity.getSchool());
     this.responsible = new UserDTO(entity.getResponsible());
     this.donor = new UserDTO(entity.getDonor());
+    this.supplyListId = entity.getSupplyList().getId();
 
   }
 }
