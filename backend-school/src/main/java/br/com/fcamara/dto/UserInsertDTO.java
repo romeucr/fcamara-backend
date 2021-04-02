@@ -1,28 +1,23 @@
 package br.com.fcamara.dto;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+
+import br.com.fcamara.entity.UserEntity;
+import org.hibernate.validator.constraints.Length;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
+
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @NoArgsConstructor
-@JsonIdentityInfo(
-				generator = ObjectIdGenerators.PropertyGenerator.class,
-				property = "id")
-public class UserDTO {
+public class UserInsertDTO {
 
 	private Long id;
-	
-	@NotBlank(message = "Informe o seu nome completo.")
-	private String fullname;
 
 	@NotBlank(message = "Informe o seu e-mail.")
 	@Email(message = "O e-mail precisa ser válido.")
@@ -42,8 +37,4 @@ public class UserDTO {
 	private String cpf;
 
 	private Set<RoleDTO> roles = new HashSet<>();
-
-	//private AddressDTO address;
-	//private Set<StudentDTO> responsibleStudentList = new HashSet<>();
-	//private Set<StudentDTO> donorStudentList = new HashSet<>();
 }

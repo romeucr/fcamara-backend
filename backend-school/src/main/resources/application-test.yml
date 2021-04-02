@@ -12,3 +12,13 @@ spring:
    console:
    enabled: true
    path: /h2-console
+
+security:
+ oauth2:
+  client:
+   client-id:  fc4m@r4-$cho0L
+   client-secret: fc4m@r4-$ch0oL-Secr3t
+
+jwt:
+ secret: jwtS3cr3t@2021
+ duration: 43200 #12 horas

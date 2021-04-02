@@ -1,4 +1,4 @@
-package br.com.fcamara.config.security;
+package br.com.fcamara.config.swagger;
 
 import java.util.ArrayList;
 import java.util.List;
